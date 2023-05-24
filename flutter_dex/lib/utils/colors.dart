@@ -21,3 +21,11 @@ class TypesColors {
   static final rock = Colors.brown.shade800;
 }
 
+class AppColors {
+  static final background = Colors.grey.shade900;
+  static final second = Colors.grey.shade700;
+  static final bar = Colors.red;
+  static final text = Colors.grey.shade200;
+  static final effectsBlue = Colors.lightBlue;
+  static final effectsGreen = Colors.lightGreenAccent.shade400;
+}

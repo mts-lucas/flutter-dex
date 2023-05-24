@@ -1,16 +1,32 @@
-# flutter_dex
+<h1 align="center">Flutter-dex</h1>
 
-A new Flutter project.
+<p align="center">
+    <img src="https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white"/>
+</p>
 
-## Getting Started
+- [📑 Sobre o projeto](#-sobre)
+- [🚀 Começando](#-comecando)
 
-This project is a starting point for a Flutter application.
+## 📑 Sobre
+Código desenvolvido para o mini projeto da disciplina de Poo do curso de sistemas de informação
+O projeto se trata de uma PokeDex, uma enciclopédia de Pokemon, que puxa dados de uma [api](https://pokeapi.co). A pokedex exibe diversos pokemons, possuindo informações detalhadas sobre cada um e seus tipos. O código foi desenvolvido utilizando a linguagem dart e o framework Flutter. 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Comecando
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Passo 1: Clone o repositório
+```git clone https://github.com/mts-lucas/flutter-dex.git```
+
+### Passo 2: Navegue até o repositório
+```cd flutter-dex```
+
+### Passo 3: Baixe as dependencias necessárias
+```flutter pub get```
+
+### Passo 4: Execute o projeto: 
+```flutter start```
+
+## Licença
+
+Este projeto é licenciado sob a licença [MIT](LICENSE).

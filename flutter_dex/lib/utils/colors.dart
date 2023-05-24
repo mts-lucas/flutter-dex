@@ -11,5 +11,12 @@ class TypeColors {
   Color bug = Colors.lime;
   Color ghost = Colors.deepPurple.shade900;
   Color poison = Colors.purple;
-  Color flying = Colors.blueGrey.shade100;
+  Color flying = Colors.indigo.shade300;
+  Color normal = Colors.grey;
+  Color steel = Colors.grey.shade200;
+  Color ice = Colors.blue.shade200;
+  Color dragon = Colors.red.shade700;
+  Color psychic = Colors.pinkAccent;
+  Color ground = Color.fromARGB(218, 236, 180, 12);
+  Color rock = Colors.brown.shade800;
 }

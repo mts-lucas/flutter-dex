@@ -9,4 +9,7 @@ class TypeColors {
   Color fightning = Colors.deepOrange.shade700;
   Color dark = Colors.blueGrey.shade800;
   Color bug = Colors.lime;
+  Color ghost = Colors.deepPurple.shade900;
+  Color poison = Colors.purple;
+  Color flying = Colors.blueGrey.shade100;
 }

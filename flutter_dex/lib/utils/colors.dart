@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
-class TypeColors {
-  Color fire = Colors.orange;
-  Color water = Colors.blue;
-  Color grass = Colors.green;
-  Color eletric = Colors.yellowAccent;
-  Color fairy = Colors.pinkAccent.shade100;
-  Color fightning = Colors.deepOrange.shade700;
-  Color dark = Colors.blueGrey.shade800;
-  Color bug = Colors.lime;
-  Color ghost = Colors.deepPurple.shade900;
-  Color poison = Colors.purple;
-  Color flying = Colors.indigo.shade300;
-  Color normal = Colors.grey;
-  Color steel = Colors.grey.shade200;
-  Color ice = Colors.blue.shade200;
-  Color dragon = Colors.red.shade700;
-  Color psychic = Colors.pinkAccent;
-  Color ground = Color.fromARGB(218, 236, 180, 12);
-  Color rock = Colors.brown.shade800;
+class TypesColors {
+  static final fire = Colors.orange;
+  static final water = Colors.blue;
+  static final grass = Colors.green;
+  static final eletric = Colors.yellowAccent;
+  static final fairy = Colors.pinkAccent.shade100;
+  static final fightning = Colors.deepOrange.shade700;
+  static final dark = Colors.blueGrey.shade800;
+  static final bug = Colors.lime;
+  static final ghost = Colors.deepPurple.shade900;
+  static final poison = Colors.purple;
+  static final flying = Colors.indigo.shade300;
+  static final normal = Colors.grey;
+  static final steel = Colors.grey.shade200;
+  static final ice = Colors.blue.shade200;
+  static final dragon = Colors.red.shade700;
+  static final psychic = Colors.pinkAccent;
+  static final ground = Color.fromARGB(218, 236, 180, 12);
+  static final rock = Colors.brown.shade800;
 }
+

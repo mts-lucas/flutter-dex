@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dex/components/homeButtom.dart';
-import 'package:flutter_dex/components/navbar.dart';
+import 'package:flutter_dex/components/bottomNavBar.dart';
 
 void main() {
   runApp(MyApp());

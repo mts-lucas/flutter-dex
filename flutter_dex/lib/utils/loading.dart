@@ -11,3 +11,13 @@ class BigLoading extends StatelessWidget {
     );
   }
 }
+
+class LittleLoading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SpinKitFadingCircle(
+      color: AppColors.effectsGreen,
+      size: 15.0,
+    );
+  }
+}

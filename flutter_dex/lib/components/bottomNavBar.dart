@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dex/components/buttomQuiz.dart';
 import '../utils/colors.dart';
 import 'buttomRegions.dart';
 import 'buttomQuiz.dart';

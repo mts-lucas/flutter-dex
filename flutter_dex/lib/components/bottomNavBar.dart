@@ -8,7 +8,7 @@ class DexAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(10.0)), // Define o raio de curvatura desejado
+          top: Radius.circular(20.0)), // Define o raio de curvatura desejado
       child: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         color: AppColors.bar,

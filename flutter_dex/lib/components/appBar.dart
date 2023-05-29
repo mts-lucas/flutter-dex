@@ -10,6 +10,9 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text('Dex basics'),
       backgroundColor: AppColors.bar,
+      shape: RoundedRectangleBorder(
+          borderRadius:
+              const BorderRadius.vertical(bottom: Radius.circular(20.0))),
       actions: [
         PopupMenuButton<String>(
           icon: const Icon(Icons.menu_rounded),

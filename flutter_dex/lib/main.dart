@@ -15,7 +15,12 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      initialRoute: 'principal',
+      routes: {
+        'principal': (context) => MyHomePage(),
+        'telaregions': (context) => TelaRegion(),
+        'telaquiz': (context) => TelaQuiz(),
+      },
     );
   }
 }
@@ -26,23 +31,55 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dex basics'),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
-          'Página ${_selectedIndex + 1}',
+          'Página Principal',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: DexButtomHome(),
+      bottomNavigationBar: DexAppBar(),
+    );
+  }
+}
+
+class TelaQuiz extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dex basics'),
+      ),
+      body: const Center(
+        child: Text(
+          'Página quiz',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: DexButtomHome(),
+      bottomNavigationBar: DexAppBar(),
+    );
+  }
+}
+
+class TelaRegion extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dex basics'),
+      ),
+      body: const Center(
+        child: Text(
+          'Página Regioes',
           style: TextStyle(fontSize: 24),
         ),
       ),

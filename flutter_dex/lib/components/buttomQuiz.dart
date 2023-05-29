@@ -33,7 +33,9 @@ class ButtomQuiz extends StatelessWidget {
           tooltip: 'Open Quiz Module',
           icon: const Icon(Icons.quiz_outlined),
           color: colorIcons,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'telaquiz');
+          },
         ),
       ),
     );

@@ -33,7 +33,9 @@ class ButtomRegions extends StatelessWidget {
           tooltip: 'Open Regions Module',
           icon: const Icon(Icons.map_outlined),
           color: colorIcons,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'telaregions');
+          },
         ),
       ),
     );

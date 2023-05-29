@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dex/components/homeButtom.dart';
 import 'package:flutter_dex/components/bottomNavBar.dart';
+import 'package:flutter_dex/homepage/homePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: 'principal',
       routes: {
-        'principal': (context) => MyHomePage(),
+        'principal': (context) => DexHomePage(),
         'telaregions': (context) => TelaRegion(),
         'telaquiz': (context) => TelaQuiz(),
       },

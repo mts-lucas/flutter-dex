@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ButtomQuiz extends StatelessWidget {
+class ButtomRegions extends StatelessWidget {
   final Color colorButtom;
   final Color colorIcons;
 
-  ButtomQuiz({required this.colorButtom, required this.colorIcons});
+  ButtomRegions({required this.colorButtom, required this.colorIcons});
 
   @override
   Widget build(BuildContext context) {

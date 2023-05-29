@@ -3,7 +3,7 @@ import '../utils/colors.dart';
 import 'buttomRegions.dart';
 import 'buttomQuiz.dart';
 
-class DexAppBar extends StatelessWidget {
+class BottomDexAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

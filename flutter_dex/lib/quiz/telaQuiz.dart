@@ -16,7 +16,7 @@ class TelaQuiz extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DexButtomHome(),
-      bottomNavigationBar: DexAppBar(),
+      bottomNavigationBar: BottomDexAppBar(),
     );
   }
 }

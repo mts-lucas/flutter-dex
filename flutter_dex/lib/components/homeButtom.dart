@@ -6,7 +6,7 @@ class DexButtomHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        Navigator.pushNamed(context, 'principal');
+        Navigator.popUntil(context, ModalRoute.withName('principal'));
       },
       backgroundColor: AppColors.effectsBlue, // Define a cor de fundo do botão
       elevation: 4.0,

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
+import '../components/appBar.dart';
 
 class DexHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Dex basics'),
-      ),
+      appBar: UpAppBar(),
       body: const Center(
         child: Text(
           'Página Principal',

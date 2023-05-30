@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<void> loadPokemon() async {
+  var pokeUri = Uri(
+    scheme: 'https',
+    host: 'pokeapi.co',
+    path: 'api/v2/pokemon/1',
+  );
+
+  var jsonString = await http.read(pokeUri);
+
+  var pokeJson = jsonDecode(jsonString);
+
+  return pokeJson;
+}
 
 class DetailPokemon extends StatelessWidget {
+  dynamic jsonObject = loadPokemon();
+  // DetailPokemon({this.jsonObject});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,9 +33,13 @@ class DetailPokemon extends StatelessWidget {
               PkmImg(),
               PkmNameIndex(),
               PkmTypes(),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               PkmStats(),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),

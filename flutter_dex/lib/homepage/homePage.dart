@@ -6,6 +6,7 @@ import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 import '../utils/colors.dart';
 import '../utils/loading.dart';
+import '../utils/captalize.dart';
 
 class DataService {
   final ValueNotifier<List> tableStateNotifier = new ValueNotifier([]);
@@ -116,7 +117,7 @@ class MyCardWidget extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                     ),
-                    title: Text(objects[index]['name']),
+                    title: Text(objects[index]['name'].toString().capitalize()),
                     subtitle: Text(objects[index]['order'].toString()),
                   )
                 ],

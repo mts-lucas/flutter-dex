@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-Future<void> loadPokemon() async {
-  var pokeUri = Uri(
-    scheme: 'https',
-    host: 'pokeapi.co',
-    path: 'api/v2/pokemon/1',
-  );
-
-  var jsonString = await http.read(pokeUri);
-
-  var pokeJson = jsonDecode(jsonString);
-
-  return pokeJson;
-}
 
 class DetailPokemon extends StatelessWidget {
-  dynamic jsonObject = loadPokemon();
-  // DetailPokemon({this.jsonObject});
+  List<dynamic> jsonObject;
+  DetailPokemon({required this.jsonObject});
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +14,12 @@ class DetailPokemon extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              PkmImg(),
-              PkmNameIndex(),
+              PkmImg(
+                jsonObject: jsonObject,
+              ),
+              PkmNameIndex(
+                jsonObject: jsonObject[0]['name'],
+              ),
               PkmTypes(),
               SizedBox(
                 height: 10,
@@ -49,20 +37,25 @@ class DetailPokemon extends StatelessWidget {
 }
 
 class PkmImg extends StatelessWidget {
+  List<dynamic> jsonObject;
+  PkmImg({required this.jsonObject});
+
   @override
   Widget build(BuildContext context) {
-    return const Image(
-      image: NetworkImage(
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'),
-    );
+    final imageUrl =  jsonObject[0]['sprites']['other']['official-artwork']['front_default'];
+
+    return Image.network(imageUrl);
   }
 }
 
 class PkmNameIndex extends StatelessWidget {
+  dynamic jsonObject;
+  PkmNameIndex({required this.jsonObject});
+
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      '#1 Bulbasauro',
+    return Text(
+      jsonObject.toString(),
       style: TextStyle(
         color: Colors.white,
         fontSize: 30,

@@ -18,7 +18,7 @@ class DetailPokemon extends StatelessWidget {
                 jsonObject: jsonObject,
               ),
               PkmNameIndex(
-                jsonObject: jsonObject[0]['name'],
+                jsonObject: jsonObject,
               ),
               PkmTypes(),
               SizedBox(
@@ -42,7 +42,8 @@ class PkmImg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl =  jsonObject[0]['sprites']['other']['official-artwork']['front_default'];
+    final imageUrl =
+        jsonObject[0]['sprites']['other']['official-artwork']['front_default'];
 
     return Image.network(imageUrl);
   }
@@ -54,8 +55,10 @@ class PkmNameIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dynamic order = jsonObject[0]['order'].toString().padLeft(4, '0');
+    final dynamic name = jsonObject[0]['name'];
     return Text(
-      jsonObject.toString(),
+      '#${order} ${name}',
       style: TextStyle(
         color: Colors.white,
         fontSize: 30,

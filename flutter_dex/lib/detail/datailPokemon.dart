@@ -14,6 +14,7 @@ class DetailPokemon extends StatelessWidget {
               PkmImg(),
               PkmNameIndex(),
               PkmTypes(),
+              SizedBox(height: 10,),
               PkmStats(),
               SizedBox(height: 40,),
             ],

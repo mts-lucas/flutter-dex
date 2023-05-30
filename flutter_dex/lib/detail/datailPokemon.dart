@@ -20,7 +20,9 @@ class DetailPokemon extends StatelessWidget {
               PkmNameIndex(
                 jsonObject: jsonObject,
               ),
-              PkmTypes(),
+              PkmTypes(
+                jsonObject: jsonObject,
+              ),
               SizedBox(
                 height: 10,
               ),
@@ -68,33 +70,41 @@ class PkmNameIndex extends StatelessWidget {
 }
 
 class PkmTypes extends StatelessWidget {
+  dynamic jsonObject;
+
+  PkmTypes({required this.jsonObject});
+
   @override
   Widget build(BuildContext context) {
+    final tipos = jsonObject[0]['types'];
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 100,
-          height: 40,
-          margin: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: const Center(
-            child: Text(
-              'tipo 1',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
+        for (var type in tipos)
+          Container(
+            width: 100,
+            height: 40,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Center(
+              child: Text(
+                '${type['type']['name']}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
-        ),
       ],
     );
   }
 }
+
 
 class PkmStats extends StatelessWidget {
   @override

@@ -27,7 +27,7 @@ class DataService {
     }
   }
 
-  Future<void> loadPokemons({int limit = 20}) async {
+  Future<void> loadPokemons({int limit = 10}) async {
     var pokeUri = Uri(
         scheme: 'https',
         host: 'pokeapi.co',
@@ -73,7 +73,7 @@ class DexHomePage extends StatelessWidget {
   }
 
   void _loadMorePokemons() {
-    var limit = dataService.tableStateNotifier.value.length + 20;
+    var limit = dataService.tableStateNotifier.value.length + 10;
     if (limit >= 1008) {
       limit = 1008;
     }
@@ -161,7 +161,7 @@ class MyCardWidget extends HookWidget {
                       ),
                     ),
                     title: Text(objects[index]['name'].toString().capitalize()),
-                    subtitle: Text(objects[index]['order'].toString()),
+                    subtitle: Text(objects[index]['id'].toString()),
                   )
                 ],
               ),

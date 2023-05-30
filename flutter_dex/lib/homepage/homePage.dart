@@ -52,7 +52,6 @@ class DataService {
       pokemons.add(pokemonJson);
     }
 
-    propertyNamesNotifier.value = ["sprites", "species", "order"];
     tableStateNotifier.value = pokemons; // Convert pokeJson to a List
   }
 }
@@ -72,8 +71,7 @@ class DexHomePage extends StatelessWidget {
             return BigLoading();
           }
           return MyCardWidget(
-            objects: value,
-            propertyNames: const ['Style', 'Ibu'],
+            objects: value
           );
         },
       )),
@@ -86,16 +84,15 @@ class DexHomePage extends StatelessWidget {
 
 class MyCardWidget extends StatelessWidget {
   List objects;
-  List propertyNames;
 
-  MyCardWidget({this.objects = const [], this.propertyNames = const []});
+  MyCardWidget({this.objects = const []});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: objects.length,
         itemBuilder: (BuildContext context, int index) {
-          final imageUrl = objects[index]["sprites"]["front_default"];
+          final imageUrl = objects[index]['sprites']['front_default'];
           return Center(
             child: Card(
               margin: const EdgeInsets.all(16),
@@ -114,13 +111,13 @@ class MyCardWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(imageUrl),
-                          fit: BoxFit.none,
+                          fit: BoxFit.contain,
                         ),
                         shape: BoxShape.circle,
                       ),
                     ),
-                    title: Text(objects[index]["name"]),
-                    subtitle: Text(objects[index]["order"].toString()),
+                    title: Text(objects[index]['name']),
+                    subtitle: Text(objects[index]['order'].toString()),
                   )
                 ],
               ),

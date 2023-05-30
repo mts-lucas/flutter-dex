@@ -10,10 +10,8 @@ import '../utils/loading.dart';
 import '../utils/captalize.dart';
 
 class DataService {
-  final ValueNotifier<List> tableStateNotifier = new ValueNotifier([]);
-  // final ValueNotifier<List<String>> columnNamesNotifier = new ValueNotifier([]);
-  final ValueNotifier<List<String>> propertyNamesNotifier =
-      new ValueNotifier([]);
+  final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
+  final ValueNotifier<List<String>> propertyNamesNotifier = ValueNotifier([]);
 
   DataService() {
     loadPokemons();
@@ -63,7 +61,7 @@ final dataService = DataService();
 class DexHomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
-  DexHomePage() {
+  DexHomePage({super.key}) {
     _scrollController.addListener(_onScroll);
   }
 
@@ -105,10 +103,11 @@ class DexHomePage extends StatelessWidget {
 }
 
 class MyCardWidget extends HookWidget {
-  List objects;
+  final List objects;
   final Function() scrollEndedCallback;
 
-  MyCardWidget({this.objects = const [], required this.scrollEndedCallback});
+  const MyCardWidget(
+      {super.key, required this.objects , required this.scrollEndedCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -116,15 +115,13 @@ class MyCardWidget extends HookWidget {
     useEffect(() {
       controller.addListener(() {
         if (controller.position.pixels == controller.position.maxScrollExtent) {
-          if (scrollEndedCallback != null) {
-            scrollEndedCallback();
-          }
+          scrollEndedCallback();
         }
       });
     }, [controller]);
     return ListView.separated(
         controller: controller,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         separatorBuilder: (_, __) => Divider(
               height: 5,
               thickness: 2,

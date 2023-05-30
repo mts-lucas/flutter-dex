@@ -26,7 +26,9 @@ class DetailPokemon extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              PkmStats(),
+              PkmStats(
+                jsonObject: jsonObject,
+              ),
               SizedBox(
                 height: 40,
               ),
@@ -105,37 +107,46 @@ class PkmTypes extends StatelessWidget {
   }
 }
 
-
 class PkmStats extends StatelessWidget {
+  dynamic jsonObject;
+
+  PkmStats({required this.jsonObject});
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 40,
-          child: const Text(
-            'HP',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
+    final status = jsonObject[0]['stats'];
+    return Column(children: [
+      for (var stat in status)
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 160,
+              child: Text(
+                '${stat['stat']['name']}: ${stat['base_stat']}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
             ),
-          ),
-        ),
-        const SizedBox(width: 10),
-        Container(
-          width: 200,
-          height: 20,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: LinearProgressIndicator(
-              value: 0.5,
-              backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+            const SizedBox(width: 5),
+            Container(
+              width: 200,
+              height: 20,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: LinearProgressIndicator(
+                  value: (stat['base_stat'] / 200),
+                  backgroundColor: Colors.grey[300],
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                ),
+              ),
             ),
-          ),
+            const SizedBox(height: 40),
+          ],
         ),
-      ],
-    );
+        // const SizedBox(height: 20),
+    ]);
   }
 }

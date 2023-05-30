@@ -4,8 +4,8 @@ import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 
 class DexDetailPage extends StatelessWidget {
-  final jsonObject;
-  DexDetailPage({this.jsonObject});
+  // final jsonObject;
+  // DexDetailPage({this.jsonObject});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

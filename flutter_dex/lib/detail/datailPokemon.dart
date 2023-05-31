@@ -4,7 +4,8 @@ import '../utils/captalize.dart';
 import '../utils/dexfonts.dart';
 
 class DetailPokemon extends StatelessWidget {
-  List<dynamic> jsonObject;
+  dynamic jsonObject;
+  // int indice;
   DetailPokemon({required this.jsonObject});
 
   @override
@@ -44,13 +45,13 @@ class DetailPokemon extends StatelessWidget {
 }
 
 class PkmImg extends StatelessWidget {
-  List<dynamic> jsonObject;
+  dynamic jsonObject;
   PkmImg({required this.jsonObject});
 
   @override
   Widget build(BuildContext context) {
     final imageUrl =
-        jsonObject[0]['sprites']['other']['official-artwork']['front_default'];
+        jsonObject['sprites']['other']['official-artwork']['front_default'];
 
     return Image.network(imageUrl);
   }
@@ -62,8 +63,8 @@ class PkmNameIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dynamic id = jsonObject[0]['id'].toString().padLeft(4, '0');
-    final dynamic name = jsonObject[0]['name'].toString().capitalize();
+    final dynamic id = jsonObject['id'].toString().padLeft(4, '0');
+    final dynamic name = jsonObject['name'].toString().capitalize();
     return Text(
       '#${id} ${name}',
       style: DexFont(fontSize: 30).bolder(),
@@ -78,7 +79,7 @@ class PkmTypes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tipos = jsonObject[0]['types'];
+    final tipos = jsonObject['types'];
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +113,7 @@ class PkmStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final status = jsonObject[0]['stats'];
+    final status = jsonObject['stats'];
     return Column(children: [
       for (var stat in status)
         Row(

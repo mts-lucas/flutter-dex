@@ -151,7 +151,16 @@ class MyCardWidget extends HookWidget {
                 children: <Widget>[
                   ListTile(
                     onTap: () {
-                      Navigator.pushNamed(context, 'teladetail');
+                      final data = objects;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DexDetailPage(
+                            jsonObject: data,
+                            indice: index,
+                          ),
+                        ),
+                      );
                     },
                     leading: Container(
                       width: 100,

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         'principal': (context) => DexHomePage(),
         'telaregions': (context) => TelaRegion(),
         'telaquiz': (context) => TelaQuiz(),
-        'teladetail': (context) => DexDetailPage(),
+        // 'teladetail': (context) => DexDetailPage(),
       },
     );
   }

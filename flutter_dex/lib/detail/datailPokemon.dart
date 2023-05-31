@@ -59,10 +59,10 @@ class PkmNameIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dynamic order = jsonObject[0]['order'].toString().padLeft(4, '0');
+    final dynamic id = jsonObject[0]['id'].toString().padLeft(4, '0');
     final dynamic name = jsonObject[0]['name'];
     return Text(
-      '#${order} ${name}',
+      '#${id} ${name}',
       style: TextStyle(
         color: Colors.white,
         fontSize: 30,
@@ -132,7 +132,7 @@ class PkmStats extends StatelessWidget {
             ),
             const SizedBox(width: 5),
             Container(
-              width: 200,
+              width: 150,
               height: 20,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),

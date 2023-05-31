@@ -114,7 +114,7 @@ class MyCardWidget extends HookWidget {
     var controller = useScrollController();
     useEffect(() {
       controller.addListener(() {
-        if (controller.position.pixels == controller.position.maxScrollExtent) {
+        if (controller.offset > controller.position.maxScrollExtent / 2) {
           scrollEndedCallback();
         }
       });

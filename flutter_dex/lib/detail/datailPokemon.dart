@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/captalize.dart';
+import '../utils/dexfonts.dart';
 
 class DetailPokemon extends StatelessWidget {
   List<dynamic> jsonObject;
@@ -65,10 +66,7 @@ class PkmNameIndex extends StatelessWidget {
     final dynamic name = jsonObject[0]['name'].toString().capitalize();
     return Text(
       '#${id} ${name}',
-      style: TextStyle(
-        color: AppColors.text,
-        fontSize: 30,
-      ),
+      style: DexFont(fontSize: 30).bolder(),
     );
   }
 }
@@ -91,16 +89,14 @@ class PkmTypes extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: TypesColors().pkmColorType(type['type']['name'].toString()),
+              color:
+                  TypesColors().pkmColorType(type['type']['name'].toString()),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
               child: Text(
                 '${type['type']['name']}',
-                style: TextStyle(
-                  color: AppColors.text,
-                  fontSize: 16,
-                ),
+                style: DexFont(fontSize: 16).bolder(),
               ),
             ),
           ),
@@ -126,10 +122,7 @@ class PkmStats extends StatelessWidget {
               width: 160,
               child: Text(
                 '${stat['stat']['name']}: ${stat['base_stat']}',
-                style: TextStyle(
-                  color: AppColors.text,
-                  fontSize: 16,
-                ),
+                style: DexFont(fontSize: 16).bolder(),
               ),
             ),
             const SizedBox(width: 5),
@@ -141,14 +134,15 @@ class PkmStats extends StatelessWidget {
                 child: LinearProgressIndicator(
                   value: (stat['base_stat'] / 200),
                   backgroundColor: AppColors.text,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.effectsGreen),
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(AppColors.effectsGreen),
                 ),
               ),
             ),
             const SizedBox(height: 40),
           ],
         ),
-        // const SizedBox(height: 20),
+      // const SizedBox(height: 20),
     ]);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/captalize.dart';
+import '../utils/dexfonts.dart';
 
 class DetailPokemon extends StatelessWidget {
   List<dynamic> jsonObject;
@@ -65,10 +66,7 @@ class PkmNameIndex extends StatelessWidget {
     final dynamic name = jsonObject[0]['name'].toString().capitalize();
     return Text(
       '#${id} ${name}',
-      style: TextStyle(
-        color: AppColors.text,
-        fontSize: 30,
-      ),
+      style: DexFont(fontSize: 30).bolder(),
     );
   }
 }
@@ -98,11 +96,7 @@ class PkmTypes extends StatelessWidget {
             child: Center(
               child: Text(
                 '${type['type']['name']}',
-                style: TextStyle(
-                  color: AppColors.text,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: DexFont(fontSize: 16).bolder(),
               ),
             ),
           ),
@@ -128,10 +122,7 @@ class PkmStats extends StatelessWidget {
               width: 160,
               child: Text(
                 '${stat['stat']['name']}: ${stat['base_stat']}',
-                style: TextStyle(
-                  color: AppColors.text,
-                  fontSize: 16,
-                ),
+                style: DexFont(fontSize: 16).bolder(),
               ),
             ),
             const SizedBox(width: 5),

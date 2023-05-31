@@ -127,7 +127,7 @@ class PkmStats extends StatelessWidget {
               child: Text(
                 '${stat['stat']['name']}: ${stat['base_stat']}',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.text,
                   fontSize: 16,
                 ),
               ),
@@ -140,8 +140,8 @@ class PkmStats extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: LinearProgressIndicator(
                   value: (stat['base_stat'] / 200),
-                  backgroundColor: Colors.grey[300],
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                  backgroundColor: AppColors.text,
+                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.effectsGreen),
                 ),
               ),
             ),

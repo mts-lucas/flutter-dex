@@ -4,7 +4,7 @@ class TypesColors {
   static final fire = Colors.orange;
   static final water = Colors.blue;
   static final grass = Colors.green;
-  static final electric = Colors.yellowAccent;
+  static final electric = Colors.yellow;
   static final fairy = Colors.pinkAccent.shade100;
   static final fighting = Colors.deepOrange.shade700;
   static final dark = Colors.blueGrey.shade800;
@@ -70,5 +70,5 @@ class AppColors {
   static final bar = Colors.red;
   static final text = Colors.grey.shade200;
   static final effectsBlue = Colors.lightBlue;
-  static final effectsGreen = Colors.lightGreenAccent.shade400;
+  static final effectsGreen = Colors.greenAccent.shade400;
 }

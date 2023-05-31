@@ -66,14 +66,14 @@ class DexHomePage extends StatelessWidget {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
+    if (_scrollController.offset >
+        _scrollController.position.maxScrollExtent / 2) {
       _loadMorePokemons();
     }
   }
 
   void _loadMorePokemons() {
-    var limit = dataService.tableStateNotifier.value.length + 10;
+    var limit = dataService.tableStateNotifier.value.length + 8;
     if (limit >= 1008) {
       limit = 1008;
     }

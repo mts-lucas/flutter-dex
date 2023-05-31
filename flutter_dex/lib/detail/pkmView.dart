@@ -30,7 +30,7 @@ class DataService {
     var pokeUri = Uri(
       scheme: 'https',
       host: 'pokeapi.co',
-      path: 'api/v2/pokemon/1',
+      path: 'api/v2/pokemon/1008',
     );
 
     var jsonString = await http.read(pokeUri);

@@ -91,7 +91,8 @@ class PkmTypes extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: TypesColors().pkmColorType(type['type']['name'].toString()),
+              color:
+                  TypesColors().pkmColorType(type['type']['name'].toString()),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
@@ -100,6 +101,7 @@ class PkmTypes extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.text,
                   fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -141,14 +143,15 @@ class PkmStats extends StatelessWidget {
                 child: LinearProgressIndicator(
                   value: (stat['base_stat'] / 200),
                   backgroundColor: AppColors.text,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.effectsGreen),
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(AppColors.effectsGreen),
                 ),
               ),
             ),
             const SizedBox(height: 40),
           ],
         ),
-        // const SizedBox(height: 20),
+      // const SizedBox(height: 20),
     ]);
   }
 }

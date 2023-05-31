@@ -91,14 +91,14 @@ class PkmTypes extends StatelessWidget {
             height: 40,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: TypesColors().pkmColorType(type['type']['name'].toString()),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
               child: Text(
                 '${type['type']['name']}',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.text,
                   fontSize: 16,
                 ),
               ),

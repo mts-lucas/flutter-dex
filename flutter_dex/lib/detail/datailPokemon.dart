@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
+import '../utils/captalize.dart';
 
 class DetailPokemon extends StatelessWidget {
   List<dynamic> jsonObject;
@@ -60,11 +62,11 @@ class PkmNameIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dynamic id = jsonObject[0]['id'].toString().padLeft(4, '0');
-    final dynamic name = jsonObject[0]['name'];
+    final dynamic name = jsonObject[0]['name'].toString().capitalize();
     return Text(
       '#${id} ${name}',
       style: TextStyle(
-        color: Colors.white,
+        color: AppColors.text,
         fontSize: 30,
       ),
     );

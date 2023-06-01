@@ -82,13 +82,21 @@ class DexHomePage extends StatelessWidget {
         valueListenable: dataService.tableStateNotifier,
         builder: (_, value, __) {
           String selectedType = type;
-          print('Home $selectedType');
 
           List filteredPokemons = [];
           if (selectedType != '') {
             for (var pokemon in value) {
+              int count = 0;
+              for (var types in pokemon['types']) {
+                count++;
+              }
               if (pokemon['types'][0]['type']['name'] == selectedType) {
                 filteredPokemons.add(pokemon);
+              }
+              if (count > 1) {
+                if (pokemon['types'][1]['type']['name'] == selectedType) {
+                  filteredPokemons.add(pokemon);
+                }
               }
             }
           } else {

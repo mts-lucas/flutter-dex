@@ -18,7 +18,12 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.menu_rounded),
           constraints: BoxConstraints.expand(width: 200, height: 500),
           onSelected: (String type) {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => DexHomePage(type: type,)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DexHomePage(
+                          type: type,
+                        )));
           },
           itemBuilder: (BuildContext context) => const [
             PopupMenuItem<String>(
@@ -42,6 +47,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
                 value: "dragon",
                 child: ListTile(
+                  leading: Icon(Icons.token),
                   title: Text('Dragon'),
                 )),
             PopupMenuItem<String>(
@@ -53,6 +59,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
                 value: "fairy",
                 child: ListTile(
+                  leading: Icon(Icons.wifi_tethering_rounded),
                   title: Text('Fairy'),
                 )),
             PopupMenuItem<String>(
@@ -77,6 +84,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
               value: "ghost",
               child: ListTile(
+                leading: Icon(Icons.visibility_outlined),
                 title: Text('Ghost'),
               ),
             ),
@@ -90,6 +98,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
               value: "ground",
               child: ListTile(
+                leading: Icon(Icons.terrain_outlined),
                 title: Text('Ground'),
               ),
             ),
@@ -110,6 +119,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
               value: "poison",
               child: ListTile(
+                leading: Icon(Icons.warning),
                 title: Text('Poison'),
               ),
             ),
@@ -130,6 +140,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             PopupMenuItem<String>(
               value: "steel",
               child: ListTile(
+                leading: Icon(Icons.view_carousel_outlined),
                 title: Text('Steel'),
               ),
             ),

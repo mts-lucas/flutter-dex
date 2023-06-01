@@ -3,7 +3,7 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 
-class TelaRegion extends StatelessWidget {
+class TelaSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

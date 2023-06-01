@@ -34,7 +34,7 @@ class ButtomRegions extends StatelessWidget {
           icon: const Icon(Icons.map_outlined),
           color: colorIcons,
           onPressed: () {
-            Navigator.pushNamed(context, 'telaregions');
+            Navigator.pushNamed(context, 'tela-search');
           },
         ),
       ),

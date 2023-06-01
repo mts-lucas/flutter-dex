@@ -8,6 +8,7 @@ import '../components/appBar.dart';
 import '../utils/colors.dart';
 import '../utils/loading.dart';
 import '../utils/captalize.dart';
+import '../detail/pkmView.dart';
 
 class DataService {
   final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
@@ -152,6 +153,18 @@ class MyCardWidget extends HookWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     ListTile(
+                      onTap: () {
+                        final data = objects;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DexDetailPage(
+                              jsonObject: data,
+                              indice: index,
+                            ),
+                          ),
+                        );
+                      },
                       leading: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Container(

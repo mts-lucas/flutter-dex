@@ -18,16 +18,6 @@ class DataService {
     loadPokemons();
   }
 
-  void load(index) {
-    switch (index) {
-      case 1:
-        loadPokemons();
-        break;
-      case 2:
-        break;
-    }
-  }
-
   Future<void> loadPokemons({int limit = 10}) async {
     var pokeUri = Uri(
         scheme: 'https',
@@ -58,11 +48,13 @@ class DataService {
 }
 
 final dataService = DataService();
+final app = UpAppBar();
 
 class DexHomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
+  final String type;
 
-  DexHomePage({super.key}) {
+  DexHomePage({super.key, this.type = ''}) {
     _scrollController.addListener(_onScroll);
   }
 
@@ -89,11 +81,25 @@ class DexHomePage extends StatelessWidget {
           child: ValueListenableBuilder(
         valueListenable: dataService.tableStateNotifier,
         builder: (_, value, __) {
+          String selectedType = type;
+          print('Home $selectedType');
+
+          List filteredPokemons = [];
+          if (selectedType != '') {
+            for (var pokemon in value) {
+              if (pokemon['types'][0]['type']['name'] == selectedType) {
+                filteredPokemons.add(pokemon);
+              }
+            }
+          } else {
+            filteredPokemons = value;
+          }
           if (value.isEmpty) {
             return BigLoading();
           }
           return MyCardWidget(
-              objects: value, scrollEndedCallback: _loadMorePokemons);
+              objects: filteredPokemons,
+              scrollEndedCallback: _loadMorePokemons);
         },
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

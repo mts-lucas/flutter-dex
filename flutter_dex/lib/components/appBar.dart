@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dex/homepage/homePage.dart';
 import '../utils/colors.dart';
 
 class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,17 +11,24 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text('Dex basics'),
       backgroundColor: AppColors.bar,
-      shape: RoundedRectangleBorder(
-          borderRadius:
-              const BorderRadius.vertical(bottom: Radius.circular(20.0))),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.0))),
       actions: [
         PopupMenuButton<String>(
           icon: const Icon(Icons.menu_rounded),
           constraints: BoxConstraints.expand(width: 200, height: 500),
-          onSelected: _onTypeSelected,
+          onSelected: (String type) {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DexHomePage(type: type,)));
+          },
           itemBuilder: (BuildContext context) => const [
             PopupMenuItem<String>(
-                value: "Bug",
+                value: "",
+                child: ListTile(
+                  leading: Icon(Icons.dangerous),
+                  title: Text('None'),
+                )),
+            PopupMenuItem<String>(
+                value: "bug",
                 child: ListTile(
                   leading: Icon(Icons.bug_report),
                   title: Text('Bug'),
@@ -137,9 +145,5 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
     );
-  }
-
-  void _onTypeSelected(String type) {
-    // TODO: Implement filtering logic based on the selected type
   }
 }

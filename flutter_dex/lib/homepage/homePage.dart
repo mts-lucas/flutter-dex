@@ -8,6 +8,7 @@ import '../components/appBar.dart';
 import '../utils/colors.dart';
 import '../utils/loading.dart';
 import '../utils/captalize.dart';
+import '../detail/pkmView.dart';
 
 class DataService {
   final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
@@ -107,7 +108,7 @@ class MyCardWidget extends HookWidget {
   final Function() scrollEndedCallback;
 
   const MyCardWidget(
-      {super.key, required this.objects , required this.scrollEndedCallback});
+      {super.key, required this.objects, required this.scrollEndedCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -149,6 +150,18 @@ class MyCardWidget extends HookWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
+                    onTap: () {
+                      final data = objects;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DexDetailPage(
+                            jsonObject: data,
+                            indice: index,
+                          ),
+                        ),
+                      );
+                    },
                     leading: Container(
                       width: 100,
                       height: 300,

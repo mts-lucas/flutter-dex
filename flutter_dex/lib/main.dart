@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dex/homepage/homePage.dart';
 import 'package:flutter_dex/quiz/telaQuiz.dart';
-// import 'package:flutter_dex/regions/telaRegion.dart';
+import 'package:flutter_dex/regions/telaRegion.dart';
 import 'package:flutter_dex/detail/pkmView.dart';
 
 void main() {
@@ -21,8 +21,9 @@ class MyApp extends StatelessWidget {
       initialRoute: 'principal',
       routes: {
         'principal': (context) => DexHomePage(),
-        'telaregions': (context) => DexDetailPage(),
+        'telaregions': (context) => TelaRegion(),
         'telaquiz': (context) => TelaQuiz(),
+        // 'teladetail': (context) => DexDetailPage(),
       },
     );
   }

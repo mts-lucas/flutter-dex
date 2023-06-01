@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ButtomRegions extends StatelessWidget {
+class ButtomSearch extends StatelessWidget {
   final Color colorButtom;
   final Color colorIcons;
 
-  ButtomRegions({required this.colorButtom, required this.colorIcons});
+  ButtomSearch({required this.colorButtom, required this.colorIcons});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class ButtomRegions extends StatelessWidget {
         ),
         child: IconButton(
           tooltip: 'Open Regions Module',
-          icon: const Icon(Icons.map_outlined),
+          icon: const Icon(Icons.search),
           color: colorIcons,
           onPressed: () {
             Navigator.pushNamed(context, 'tela-search');

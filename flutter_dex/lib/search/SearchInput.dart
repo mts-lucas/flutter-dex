@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../utils/captalize.dart';
 import '../utils/dexfonts.dart';
-import '../utils/colors.dart';
-import '../utils/dexfonts.dart';
+import '../utils/search.dart';
+import '../detail/pkmView.dart';
+
+final dataSearch = DataSearch();
 
 class SearchInput extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -21,10 +22,10 @@ class SearchInput extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Image.asset('assets/images/dexlogo.png', scale: 1.3,), // Imagem centralizada
+            Image.asset('assets/images/dexlogo.png'), // Imagem centralizada
             SizedBox(
                 height:
-                    60), // Espaçamento entre a imagem e o restante do conteúdo
+                    20), // Espaçamento entre a imagem e o restante do conteúdo
             Theme(
               data: ThemeData(
                 primaryColor: AppColors.text,
@@ -58,10 +59,20 @@ class SearchInput extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           String searchQuery = _textEditingController.text;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Processing Data: $searchQuery')),
-                          );
+                          // final snackBar = SnackBar(
+                          //   content: Text('Processing Data: $'),
+                          //   behavior: SnackBarBehavior.floating,
+                          //   shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(10),
+                          //   ),
+                          // );
+                          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          final dynamic jsonObject =
+                              dataSearch.loadPokemon(searchQuery);
+                          if (jsonObject != null){
+
+                            
+                          }
                         },
                         child: Icon(Icons.search),
                         style: ElevatedButton.styleFrom(

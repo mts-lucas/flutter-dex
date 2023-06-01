@@ -156,8 +156,7 @@ class MyCardWidget extends HookWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => DexDetailPage(
-                            jsonObject: data,
-                            indice: index,
+                            jsonObject: data[index],
                           ),
                         ),
                       );

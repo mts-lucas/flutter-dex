@@ -3,9 +3,8 @@ import 'package:flutter_dex/search/SearchInput.dart';
 import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
-import '../utils/search.dart';
 
-final dataSearch = DataSearch();
+
 
 class TelaSearch extends StatelessWidget {
   @override

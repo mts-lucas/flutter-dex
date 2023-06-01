@@ -52,7 +52,7 @@ class DataService {
       pokemons.add(pokemonJson);
     }
 
-    tableStateNotifier.value = pokemons; // Convert pokeJson to a List
+    tableStateNotifier.value = pokemons;
   }
 }
 
@@ -107,7 +107,7 @@ class MyCardWidget extends HookWidget {
   final Function() scrollEndedCallback;
 
   const MyCardWidget(
-      {super.key, required this.objects , required this.scrollEndedCallback});
+      {super.key, required this.objects, required this.scrollEndedCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -137,33 +137,44 @@ class MyCardWidget extends HookWidget {
             );
           }
           final imageUrl = objects[index]['sprites']['front_default'];
+          final type = objects[index]['types'][0]['type']['name'];
           return Center(
             child: Card(
               margin: const EdgeInsets.all(16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                    25), // Adjust the border radius as needed
+                    50), // Adjust the border radius as needed
               ),
               color: AppColors.second,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    leading: Container(
-                      width: 100,
-                      height: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(imageUrl),
-                          fit: BoxFit.contain,
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Container(
+                          width: 100,
+                          height: 550,
+                          color: TypesColors().pkmColorType(type),
+                          child: Image(image: NetworkImage(imageUrl)),
                         ),
-                        shape: BoxShape.circle,
+
+                        // decoration: BoxDecoration(
+                        //   image: DecorationImage(
+                        //     image: NetworkImage(imageUrl),
+                        //     fit: BoxFit.contain,
+                        //   ),
+                        //   shape: BoxShape.circle,
+                        // ),
                       ),
-                    ),
-                    title: Text(objects[index]['name'].toString().capitalize()),
-                    subtitle: Text(objects[index]['id'].toString()),
-                  )
-                ],
+                      title:
+                          Text(objects[index]['name'].toString().capitalize()),
+                      subtitle: Text(objects[index]['id'].toString()),
+                    )
+                  ],
+                ),
               ),
             ),
           );

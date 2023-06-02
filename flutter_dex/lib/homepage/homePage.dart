@@ -18,16 +18,6 @@ class DataService {
     loadPokemons();
   }
 
-  void load(index) {
-    switch (index) {
-      case 1:
-        loadPokemons();
-        break;
-      case 2:
-        break;
-    }
-  }
-
   Future<void> loadPokemons({int limit = 10}) async {
     var pokeUri = Uri(
         scheme: 'https',
@@ -53,16 +43,18 @@ class DataService {
       pokemons.add(pokemonJson);
     }
 
-    tableStateNotifier.value = pokemons; // Convert pokeJson to a List
+    tableStateNotifier.value = pokemons;
   }
 }
 
 final dataService = DataService();
+final app = UpAppBar();
 
 class DexHomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
+  final String type;
 
-  DexHomePage({super.key}) {
+  DexHomePage({super.key, this.type = ''}) {
     _scrollController.addListener(_onScroll);
   }
 
@@ -89,11 +81,33 @@ class DexHomePage extends StatelessWidget {
           child: ValueListenableBuilder(
         valueListenable: dataService.tableStateNotifier,
         builder: (_, value, __) {
+          String selectedType = type;
+
+          List filteredPokemons = [];
+          if (selectedType != '') {
+            for (var pokemon in value) {
+              int count = 0;
+              for (var types in pokemon['types']) {
+                count++;
+              }
+              if (pokemon['types'][0]['type']['name'] == selectedType) {
+                filteredPokemons.add(pokemon);
+              }
+              if (count > 1) {
+                if (pokemon['types'][1]['type']['name'] == selectedType) {
+                  filteredPokemons.add(pokemon);
+                }
+              }
+            }
+          } else {
+            filteredPokemons = value;
+          }
           if (value.isEmpty) {
             return BigLoading();
           }
           return MyCardWidget(
-              objects: value, scrollEndedCallback: _loadMorePokemons);
+              objects: filteredPokemons,
+              scrollEndedCallback: _loadMorePokemons);
         },
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -138,12 +152,13 @@ class MyCardWidget extends HookWidget {
             );
           }
           final imageUrl = objects[index]['sprites']['front_default'];
+          final type = objects[index]['types'][0]['type']['name'];
           return Center(
             child: Card(
               margin: const EdgeInsets.all(16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                    25), // Adjust the border radius as needed
+                    50), // Adjust the border radius as needed
               ),
               color: AppColors.second,
               child: Column(
@@ -158,24 +173,31 @@ class MyCardWidget extends HookWidget {
                           builder: (context) => DexDetailPage(
                             jsonObject: data[index],
                           ),
+                        );
+                      },
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Container(
+                          width: 100,
+                          height: 550,
+                          color: TypesColors().pkmColorType(type),
+                          child: Image(image: NetworkImage(imageUrl)),
                         ),
-                      );
-                    },
-                    leading: Container(
-                      width: 100,
-                      height: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(imageUrl),
-                          fit: BoxFit.contain,
-                        ),
-                        shape: BoxShape.circle,
+
+                        // decoration: BoxDecoration(
+                        //   image: DecorationImage(
+                        //     image: NetworkImage(imageUrl),
+                        //     fit: BoxFit.contain,
+                        //   ),
+                        //   shape: BoxShape.circle,
+                        // ),
                       ),
-                    ),
-                    title: Text(objects[index]['name'].toString().capitalize()),
-                    subtitle: Text(objects[index]['id'].toString()),
-                  )
-                ],
+                      title:
+                          Text(objects[index]['name'].toString().capitalize()),
+                      subtitle: Text(objects[index]['id'].toString()),
+                    )
+                  ],
+                ),
               ),
             ),
           );

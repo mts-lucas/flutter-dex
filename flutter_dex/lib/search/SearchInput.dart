@@ -22,7 +22,7 @@ class SearchInput extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Image.asset('assets/images/dexlogo.png'),
+            Image.asset('assets/images/dexlogo.png', scale: 1.4,),
             SizedBox(
               height: 20,
             ),
@@ -62,18 +62,18 @@ class SearchInput extends StatelessWidget {
                           await dataSearch.loadPokemon(searchQuery);
                           final dynamic jsonObject =
                               dataSearch.tableStateNotifier.value;
-                          if (jsonObject[0] != []) {
+                          if (jsonObject['status'] == 'ready') {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => DexDetailPage(
-                                  jsonObject: jsonObject[0],
+                                  jsonObject: jsonObject['result'],
                                 ),
                               ),
                             );
                           } else {
                             final snackBar = SnackBar(
-                              content: Text('${searchQuery} Not Found'),
+                              content: Text('${searchQuery} Not Found in DataBase'),
                               behavior: SnackBarBehavior.floating,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

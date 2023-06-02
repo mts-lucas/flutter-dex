@@ -3,7 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class DataSearch {
-  final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
+  // final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
+  final ValueNotifier tableStateNotifier =
+      ValueNotifier({'status': "none", 'result': null});
   Future<void> loadPokemon(var pkm) async {
     var pokeUri = Uri(
       scheme: 'https',
@@ -11,10 +13,17 @@ class DataSearch {
       path: 'api/v2/pokemon/${pkm}',
     );
 
-    var jsonString = await http.read(pokeUri);
+    try {
+      tableStateNotifier.value = {'status': "loading", 'result': null};
+      var jsonString = await http.read(pokeUri);
+      var pokeJson = jsonDecode(jsonString);
 
-    var pokeJson = jsonDecode(jsonString);
-
-    tableStateNotifier.value = [pokeJson];
+      tableStateNotifier.value = {
+        'status': pokeJson != [] ? "ready" : "notFound",
+        'result': pokeJson
+      };
+    } catch (e) {
+      tableStateNotifier.value = {'status': "error", 'result': null};
+    }
   }
 }

@@ -4,7 +4,7 @@ import '../utils/dexfonts.dart';
 import '../utils/search.dart';
 import '../detail/pkmView.dart';
 
-final dataSearch = DataSearch();
+final DataSearch dataSearch = DataSearch();
 
 class SearchInput extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -22,10 +22,10 @@ class SearchInput extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Image.asset('assets/images/dexlogo.png'), // Imagem centralizada
+            Image.asset('assets/images/dexlogo.png'),
             SizedBox(
-                height:
-                    20), // Espaçamento entre a imagem e o restante do conteúdo
+              height: 20,
+            ),
             Theme(
               data: ThemeData(
                 primaryColor: AppColors.text,
@@ -52,26 +52,35 @@ class SearchInput extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                        width:
-                            10), // Espaçamento entre a barra de pesquisa e o botão
+                      width: 10,
+                    ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           String searchQuery = _textEditingController.text;
-                          // final snackBar = SnackBar(
-                          //   content: Text('Processing Data: $'),
-                          //   behavior: SnackBarBehavior.floating,
-                          //   shape: RoundedRectangleBorder(
-                          //     borderRadius: BorderRadius.circular(10),
-                          //   ),
-                          // );
-                          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          await dataSearch.loadPokemon(searchQuery);
                           final dynamic jsonObject =
-                              dataSearch.loadPokemon(searchQuery);
-                          if (jsonObject != null){
-
-                            
+                              dataSearch.tableStateNotifier.value;
+                          if (jsonObject[0] != []) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DexDetailPage(
+                                  jsonObject: jsonObject[0],
+                                ),
+                              ),
+                            );
+                          } else {
+                            final snackBar = SnackBar(
+                              content: Text('${searchQuery} Not Found'),
+                              behavior: SnackBarBehavior.floating,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           }
                         },
                         child: Icon(Icons.search),

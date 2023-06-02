@@ -4,7 +4,6 @@ import 'dart:convert';
 
 class DataSearch {
   final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);
-
   Future<void> loadPokemon(var pkm) async {
     var pokeUri = Uri(
       scheme: 'https',
@@ -16,6 +15,6 @@ class DataSearch {
 
     var pokeJson = jsonDecode(jsonString);
 
-    tableStateNotifier.value = pokeJson; // Convert pokeJson to a List
+    tableStateNotifier.value = [pokeJson];
   }
 }

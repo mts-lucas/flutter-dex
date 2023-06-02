@@ -7,22 +7,16 @@ import 'package:flutter_dex/utils/loading.dart';
 
 class DexDetailPage extends StatelessWidget {
   final dynamic jsonObject;
-  int indice;
 
-  DexDetailPage({required this.jsonObject, required this.indice});
+  DexDetailPage({required this.jsonObject});
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> jsonList = jsonObject is List<dynamic> ? jsonObject : [];
-
-
     return Scaffold(
       appBar: UpAppBar(),
       body: Center(
-        child: jsonList.isNotEmpty
-            ? DetailPokemon(
-                jsonObject: jsonList[indice],
-              )
+        child: jsonObject != null
+            ? DetailPokemon(jsonObject: jsonObject)
             : BigLoading(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

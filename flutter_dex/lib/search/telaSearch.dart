@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dex/search/searchInput.dart';
 import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 
-class TelaRegion extends StatelessWidget {
+
+
+class TelaSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UpAppBar(),
-      body: const Center(
-        child: Text(
-          'Página Regioes',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+      body: SearchInput(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DexButtomHome(),
       bottomNavigationBar: BottomDexAppBar(),
     );
   }
 }
+

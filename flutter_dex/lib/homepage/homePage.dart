@@ -161,21 +161,17 @@ class MyCardWidget extends HookWidget {
                     50), // Adjust the border radius as needed
               ),
               color: AppColors.second,
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ListTile(
-                      onTap: () {
-                        final data = objects;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DexDetailPage(
-                              jsonObject: data,
-                              indice: index,
-                            ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    onTap: () {
+                      final data = objects;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DexDetailPage(
+                            jsonObject: data[index],
                           ),
                         );
                       },

@@ -15,7 +15,7 @@ class BottomDexAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            ButtomRegions(
+            ButtomSearch(
                 colorButtom: AppColors.background, colorIcons: AppColors.text),
             ButtomQuiz(
                 colorButtom: AppColors.background, colorIcons: AppColors.text),

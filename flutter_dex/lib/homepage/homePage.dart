@@ -59,8 +59,7 @@ class DexHomePage extends StatelessWidget {
   }
 
   void _onScroll() {
-    if (_scrollController.offset >
-        _scrollController.position.maxScrollExtent / 2) {
+    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
       _loadMorePokemons();
     }
   }
@@ -129,7 +128,7 @@ class MyCardWidget extends HookWidget {
     var controller = useScrollController();
     useEffect(() {
       controller.addListener(() {
-        if (controller.offset > controller.position.maxScrollExtent / 2) {
+        if (controller.position.pixels == controller.position.maxScrollExtent) {
           scrollEndedCallback();
         }
       });

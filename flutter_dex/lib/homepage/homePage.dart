@@ -168,36 +168,34 @@ class MyCardWidget extends HookWidget {
                     onTap: () {
                       final data = objects;
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DexDetailPage(
-                            jsonObject: data[index],
-                          ),
-                        );
-                      },
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Container(
-                          width: 100,
-                          height: 550,
-                          color: TypesColors().pkmColorType(type),
-                          child: Image(image: NetworkImage(imageUrl)),
-                        ),
-
-                        // decoration: BoxDecoration(
-                        //   image: DecorationImage(
-                        //     image: NetworkImage(imageUrl),
-                        //     fit: BoxFit.contain,
-                        //   ),
-                        //   shape: BoxShape.circle,
-                        // ),
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DexDetailPage(
+                              jsonObject: data[index],
+                            ),
+                          ));
+                    },
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Container(
+                        width: 100,
+                        height: 550,
+                        color: TypesColors().pkmColorType(type),
+                        child: Image(image: NetworkImage(imageUrl)),
                       ),
-                      title:
-                          Text(objects[index]['name'].toString().capitalize()),
-                      subtitle: Text(objects[index]['id'].toString()),
-                    )
-                  ],
-                ),
+
+                      // decoration: BoxDecoration(
+                      //   image: DecorationImage(
+                      //     image: NetworkImage(imageUrl),
+                      //     fit: BoxFit.contain,
+                      //   ),
+                      //   shape: BoxShape.circle,
+                      // ),
+                    ),
+                    title: Text(objects[index]['name'].toString().capitalize()),
+                    subtitle: Text(objects[index]['id'].toString()),
+                  )
+                ],
               ),
             ),
           );

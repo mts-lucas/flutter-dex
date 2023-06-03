@@ -22,7 +22,10 @@ class SearchInput extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Image.asset('assets/images/dexlogo.png', scale: 1.4,),
+            Image.asset(
+              'assets/images/dexlogo.png',
+              scale: 1.4,
+            ),
             SizedBox(
               height: 20,
             ),
@@ -63,6 +66,17 @@ class SearchInput extends StatelessWidget {
                           final dynamic jsonObject =
                               dataSearch.tableStateNotifier.value;
                           if (jsonObject['status'] == 'ready') {
+                            final snackBar = SnackBar(
+                              content: Text(
+                                  'Pokemon Found in database, displaying found data!'),
+                              behavior: SnackBarBehavior.floating,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              backgroundColor: AppColors.rightMessage,
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -73,11 +87,13 @@ class SearchInput extends StatelessWidget {
                             );
                           } else {
                             final snackBar = SnackBar(
-                              content: Text('${searchQuery} Not Found in DataBase'),
+                              content:
+                                  Text('${searchQuery} Not Found in DataBase'),
                               behavior: SnackBarBehavior.floating,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
+                              backgroundColor: AppColors.wrongMessage,
                             );
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
@@ -87,6 +103,7 @@ class SearchInput extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.all(15),
                           minimumSize: Size(60, 60),
+                          backgroundColor: AppColors.effectsBlue,
                         ),
                       ),
                     ),

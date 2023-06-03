@@ -71,4 +71,7 @@ class AppColors {
   static final text = Colors.grey.shade200;
   static final effectsBlue = Colors.lightBlue;
   static final effectsGreen = Colors.greenAccent.shade400;
+  static final rightMessage = Colors.green.shade300;
+  static final wrongMessage = Colors.red.shade300;
+  static final normalMessage = Colors.blue.shade200;
 }

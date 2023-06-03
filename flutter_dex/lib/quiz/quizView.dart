@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dex/detail/pkmView.dart';
 import 'package:flutter_dex/search/searchInput.dart';
 import 'package:flutter_dex/utils/colors.dart';
 import 'package:flutter_dex/utils/loading.dart';
@@ -35,18 +36,23 @@ class QuizContent extends StatelessWidget {
           return Center(
             child: Container(
               child: Column(
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Centraliza verticalmente
                 children: [
+                  Text(
+                    "Who's that Pokemon?!",
+                    style: DexFont(fontSize: 30).bolder(),
+                  ),
+                  SizedBox(height: 30),
                   Image.network(
                     myPokemon['result']['sprites']['other']['official-artwork']
                         ['front_default'],
                     fit: BoxFit.cover,
-                    width: 200, // Ajuste o tamanho conforme necessário
+                    width: 200,
                     height: 200,
                     color: AppColors.text,
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Theme(
                     data: ThemeData(
                       primaryColor: AppColors.text,
@@ -62,6 +68,8 @@ class QuizContent extends StatelessWidget {
                     child: Form(
                       key: _formKey,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment
+                            .center, // Centraliza horizontalmente
                         children: [
                           Expanded(
                             child: TextFormField(
@@ -72,9 +80,7 @@ class QuizContent extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(30),
                             child: ElevatedButton(
@@ -85,7 +91,8 @@ class QuizContent extends StatelessWidget {
                                     searchQuery) {
                                   final snackBar = SnackBar(
                                     content: Text(
-                                        'Congratulations you were right! ${searchQuery} is the correct Pokemon!'),
+                                      'Congratulations you were right! $searchQuery is the correct Pokemon!',
+                                    ),
                                     behavior: SnackBarBehavior.floating,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -94,12 +101,19 @@ class QuizContent extends StatelessWidget {
                                   );
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
-                                  dataSearch
-                                      .loadPokemon(randomize.nextInt(1009));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DexDetailPage(
+                                        jsonObject: myPokemon['result'],
+                                      ),
+                                    ),
+                                  );
                                 } else {
                                   final snackBar = SnackBar(
                                     content: Text(
-                                        '${searchQuery} is Not correct Pokemon!'),
+                                      '$searchQuery is Not correct Pokemon!',
+                                    ),
                                     behavior: SnackBarBehavior.floating,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -112,14 +126,13 @@ class QuizContent extends StatelessWidget {
                               },
                               child: Icon(Icons.play_circle_outline_sharp),
                               style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(15),
-                                  minimumSize: Size(60, 60),
-                                  backgroundColor: AppColors.effectsBlue),
+                                padding: EdgeInsets.all(15),
+                                minimumSize: Size(60, 60),
+                                backgroundColor: AppColors.effectsBlue,
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(30),
                             child: ElevatedButton(
@@ -138,9 +151,10 @@ class QuizContent extends StatelessWidget {
                               },
                               child: Icon(Icons.restart_alt_rounded),
                               style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.all(15),
-                                  minimumSize: Size(60, 60),
-                                  backgroundColor: AppColors.effectsGreen),
+                                padding: EdgeInsets.all(15),
+                                minimumSize: Size(60, 60),
+                                backgroundColor: AppColors.effectsGreen,
+                              ),
                             ),
                           ),
                         ],

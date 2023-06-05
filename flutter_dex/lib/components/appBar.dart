@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dex/homepage/homePage.dart';
+import 'package:flutter_dex/homepage/filterpage.dart';
 import '../utils/colors.dart';
 
 class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -21,17 +22,11 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => DexHomePage(
+                    builder: (context) => DexTypePage(
                           type: type,
                         )));
           },
           itemBuilder: (BuildContext context) => const [
-            PopupMenuItem<String>(
-                value: "",
-                child: ListTile(
-                  leading: Icon(Icons.dangerous),
-                  title: Text('None'),
-                )),
             PopupMenuItem<String>(
                 value: "bug",
                 child: ListTile(
@@ -51,7 +46,7 @@ class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
                   title: Text('Dragon'),
                 )),
             PopupMenuItem<String>(
-                value: "eletric",
+                value: "electric",
                 child: ListTile(
                   leading: Icon(Icons.flash_on),
                   title: Text('Eletric'),

@@ -12,8 +12,8 @@ class TypesColors {
   static final ghost = Colors.deepPurple.shade900;
   static final poison = Colors.purple;
   static final flying = Colors.indigo.shade300;
-  static final normal = Colors.grey;
-  static final steel = Colors.grey.shade200;
+  static final normal = Colors.grey.shade600;
+  static final steel = Color.fromARGB(255, 130, 175, 189);
   static final ice = Colors.blue.shade200;
   static final dragon = Colors.red.shade700;
   static final psychic = Colors.pinkAccent;

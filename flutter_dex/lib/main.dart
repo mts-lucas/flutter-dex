@@ -3,7 +3,6 @@ import 'package:flutter_dex/homepage/homePage.dart';
 import 'package:flutter_dex/quiz/telaQuiz.dart';
 import 'package:flutter_dex/search/telaSearch.dart';
 import 'package:flutter_dex/detail/pkmView.dart';
-import '';
 
 void main() {
   runApp(MyApp());

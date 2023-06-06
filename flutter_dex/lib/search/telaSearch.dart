@@ -10,7 +10,7 @@ class TelaSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(),
+      appBar: UpAppBar(text: 'DEX SEARCH'),
       body: SearchInput(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DexButtomHome(),

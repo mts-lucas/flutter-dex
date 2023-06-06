@@ -47,7 +47,7 @@ class DataService {
 }
 
 final dataService = DataService();
-final app = UpAppBar();
+// final app = UpAppBar(text: 'DEX HOME');
 
 class DexHomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
@@ -76,7 +76,7 @@ class DexHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(),
+      appBar: UpAppBar(text: 'DEX ${type.toUpperCase()}'),
       body: Center(
           child: ValueListenableBuilder(
         valueListenable: dataService.tableStateNotifier,

@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dex/homepage/homePage.dart';
 import 'package:flutter_dex/homepage/filterpage.dart';
 import '../utils/colors.dart';
+import '../utils/dexfonts.dart';
 
 class UpAppBar extends StatelessWidget implements PreferredSizeWidget {
+  String text;
+  UpAppBar({required this.text});
+
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Dex basics'),
+      title: Text(
+        text,
+        style: DexFont(fontSize: 16).bolder(),
+      ),
       backgroundColor: AppColors.bar,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(20.0))),

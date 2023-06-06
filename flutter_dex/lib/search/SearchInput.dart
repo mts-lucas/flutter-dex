@@ -61,7 +61,7 @@ class SearchInput extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                       child: ElevatedButton(
                         onPressed: () async {
-                          String searchQuery = _textEditingController.text;
+                          String searchQuery = _textEditingController.text.toLowerCase();
                           await dataSearch.loadPokemon(searchQuery);
                           final dynamic jsonObject =
                               dataSearch.tableStateNotifier.value;

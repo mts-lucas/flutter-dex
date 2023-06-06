@@ -51,7 +51,6 @@ class DataService {
   }
 }
 
-final app = UpAppBar();
 final dataService = DataService();
 
 class DexTypePage extends StatelessWidget {
@@ -78,7 +77,7 @@ class DexTypePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(),
+      appBar: UpAppBar(text: 'DEX ${type.toUpperCase()}'),
       body: Center(
           child: ValueListenableBuilder(
         // Load Pokemons of the given type

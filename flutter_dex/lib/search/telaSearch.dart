@@ -4,8 +4,6 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 
-
-
 class TelaSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,4 +16,3 @@ class TelaSearch extends StatelessWidget {
     );
   }
 }
-

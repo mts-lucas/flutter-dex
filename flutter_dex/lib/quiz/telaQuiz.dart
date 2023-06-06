@@ -12,7 +12,7 @@ class TelaQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: UpAppBar(),
+      appBar: UpAppBar(text: 'POKEMON QUIZ'),
       body: QuizContent(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DexButtomHome(),

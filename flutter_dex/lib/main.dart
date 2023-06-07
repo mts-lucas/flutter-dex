@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dex/homepage/homePage.dart';
 import 'package:flutter_dex/quiz/telaQuiz.dart';
 import 'package:flutter_dex/search/telaSearch.dart';
-import 'package:flutter_dex/detail/pkmView.dart';
 import 'utils/colors.dart';
 
 void main() {
@@ -19,12 +18,11 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: AppColors.effectsBlue,
       ),
-      initialRoute: 'principal',
+      initialRoute: '/',
       routes: {
-        'principal': (context) => DexHomePage(),
-        'tela-search': (context) => TelaSearch(),
-        'telaquiz': (context) => TelaQuiz(),
-        // 'teladetail': (context) => DexDetailPage(),
+        '/': (context) => DexHomePage(),
+        '/search': (context) => TelaSearch(),
+        '/quiz': (context) => TelaQuiz(),
       },
     );
   }

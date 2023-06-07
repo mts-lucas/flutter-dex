@@ -34,7 +34,7 @@ class ButtomSearch extends StatelessWidget {
           icon: const Icon(Icons.search),
           color: colorIcons,
           onPressed: () {
-            Navigator.pushNamed(context, 'tela-search');
+            Navigator.pushNamed(context, '/search');
           },
         ),
       ),

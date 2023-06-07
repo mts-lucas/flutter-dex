@@ -34,7 +34,7 @@ class ButtomQuiz extends StatelessWidget {
           icon: const Icon(Icons.quiz_outlined),
           color: colorIcons,
           onPressed: () {
-            Navigator.pushNamed(context, 'telaquiz');
+            Navigator.pushNamed(context, '/quiz');
           },
         ),
       ),

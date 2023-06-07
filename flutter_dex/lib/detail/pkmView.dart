@@ -4,7 +4,6 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 import 'package:flutter_dex/utils/loading.dart';
-import '../utils/captalize.dart';
 
 
 class DexDetailPage extends StatelessWidget {

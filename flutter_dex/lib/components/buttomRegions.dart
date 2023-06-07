@@ -30,7 +30,7 @@ class ButtomSearch extends StatelessWidget {
           ],
         ),
         child: IconButton(
-          tooltip: 'Open Regions Module',
+          tooltip: 'Open Search Module',
           icon: const Icon(Icons.search),
           color: colorIcons,
           onPressed: () {

@@ -4,7 +4,6 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 import 'package:flutter_dex/utils/loading.dart';
-import '../utils/captalize.dart';
 
 
 class DexDetailPage extends StatelessWidget {
@@ -15,7 +14,7 @@ class DexDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(text: jsonObject['name'].toString().capitalize()),
+      appBar: UpAppBar(text: jsonObject['name'].toString().toUpperCase()),
       body: Center(
         child: jsonObject != null
             ? DetailPokemon(jsonObject: jsonObject)

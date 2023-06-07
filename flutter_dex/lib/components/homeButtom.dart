@@ -6,12 +6,12 @@ class DexButtomHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        Navigator.popUntil(context, ModalRoute.withName('principal'));
+        Navigator.popUntil(context, ModalRoute.withName('/'));
       },
       backgroundColor: AppColors.effectsBlue, // Define a cor de fundo do botão
       elevation: 4.0,
-      tooltip: 'Return to Home', // Define a elevação do botão
-      shape: CircleBorder(), // Define o formato do botão como circular
+      tooltip: 'Return to Home', 
+      shape: CircleBorder(),
       child: Container(
         width: 72.0,
         height: 72.0,

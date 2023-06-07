@@ -2,7 +2,9 @@
     <application
         android:label="Flutter Dex"
         android:name="${applicationName}"
+        android:roundIcon="@mipmap/round_launcher"
         android:icon="@mipmap/icones">
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"

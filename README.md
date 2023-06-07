@@ -6,11 +6,47 @@
 </p>
 
 - [📑 Sobre o projeto](#-sobre)
+- [📂 Estrutura do projeto](#-estrutura-de-projeto)
 - [🚀 Começando](#-comecando)
 
 ## 📑 Sobre
 Código desenvolvido para o mini projeto da disciplina de Poo do curso de sistemas de informação
 O projeto se trata de uma PokeDex, uma enciclopédia de Pokemon, que puxa dados de uma [api](https://pokeapi.co). A pokedex exibe diversos pokemons, possuindo informações detalhadas sobre cada um e seus tipos. O código foi desenvolvido utilizando a linguagem dart e o framework Flutter. 
+
+## 📂 Estrutura do projeto
+```
+flutter_dex
+├─ lib
+│  ├─ components
+│  │  ├─ appBar.dart
+│  │  ├─ bottomNavBar.dart
+│  │  ├─ buttomQuiz.dart
+│  │  ├─ buttomRegions.dart
+│  │  └─ homeButtom.dart
+│  ├─ detail
+│  │  ├─ datailPokemon.dart
+│  │  │  └─ pkmView.dart
+│  ├─ homepage
+│  │  ├─ cardView.dart
+│  │  ├─ filterPage.dart
+│  │  └─ homePage.dart
+│  ├─ main.dart
+│  ├─ quiz
+│  │  ├─ quizView.dart
+│  │  └─ telaQuiz.dart
+│  ├─ search
+│  │  ├─ SearchInput.dart
+│  │  └─ telaSearch.dart
+│  └─ utils
+│     ├─ captalize.dart
+│     ├─ colors.dart
+│     ├─ dexfonts.dart
+│     ├─ loading.dart
+│     └─ search.dart
+├─ pubspec.lock
+└─ pubspec.yaml
+
+```
 
 
 ## 🚀 Comecando
@@ -25,7 +61,7 @@ O projeto se trata de uma PokeDex, uma enciclopédia de Pokemon, que puxa dados 
 ```flutter pub get```
 
 ### Passo 4: Execute o projeto: 
-```flutter start```
+```flutter run```
 
 ## Licença
 

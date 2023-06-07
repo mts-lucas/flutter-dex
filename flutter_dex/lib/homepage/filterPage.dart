@@ -77,7 +77,7 @@ class DexTypePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(text: 'DEX ${type.toUpperCase()}'),
+      appBar: UpAppBar(text: 'TYPE: ${type.toUpperCase()}'),
       body: Center(
           child: ValueListenableBuilder(
         // Load Pokemons of the given type

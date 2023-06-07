@@ -15,7 +15,7 @@ class DexDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(text: jsonObject['name'].toString().capitalize()),
+      appBar: UpAppBar(text: jsonObject['name'].toString().toUpperCase()),
       body: Center(
         child: jsonObject != null
             ? DetailPokemon(jsonObject: jsonObject)

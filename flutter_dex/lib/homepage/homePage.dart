@@ -76,7 +76,7 @@ class DexHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: UpAppBar(text: 'DEX ${type.toUpperCase()}'),
+      appBar: UpAppBar(text: 'DEX HOME'),
       body: Center(
           child: ValueListenableBuilder(
         valueListenable: dataService.tableStateNotifier,

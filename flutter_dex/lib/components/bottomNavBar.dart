@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import 'buttomRegions.dart';
+import 'buttomSearch.dart';
 import 'buttomQuiz.dart';
 
 class BottomDexAppBar extends StatelessWidget {

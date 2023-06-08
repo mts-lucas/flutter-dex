@@ -86,7 +86,7 @@ class QuizContent extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: () async {
                                   String searchQuery =
-                                      _textEditingController.text;
+                                      _textEditingController.text.toLowerCase();
                                   if (myPokemon['result']['name'] ==
                                       searchQuery) {
                                     final snackBar = SnackBar(

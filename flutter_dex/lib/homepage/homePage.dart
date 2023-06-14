@@ -5,7 +5,7 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 import '../utils/loading.dart';
-import 'cardView.dart';
+import './cardView.dart';
 
 class DataService {
   final ValueNotifier<List> tableStateNotifier = ValueNotifier([]);

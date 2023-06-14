@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'searchInput.dart';
+import './searchInput.dart';
 import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';

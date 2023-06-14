@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dex/homepage/homePage.dart';
-import 'package:flutter_dex/homepage/filterpage.dart';
+import '../homepage/filterpage.dart';
 import '../utils/colors.dart';
 import '../utils/dexfonts.dart';
 

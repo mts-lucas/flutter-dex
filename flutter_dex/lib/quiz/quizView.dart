@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dex/detail/pkmView.dart';
-import 'package:flutter_dex/search/searchInput.dart';
-import 'package:flutter_dex/utils/colors.dart';
-import 'package:flutter_dex/utils/loading.dart';
-import 'package:flutter_dex/utils/search.dart';
-import '../components/bottomNavBar.dart';
-import '../components/homeButtom.dart';
-import '../components/appBar.dart';
+import '../detail/pkmView.dart';
+import '../utils/colors.dart';
+import '../utils/loading.dart';
+import '../utils/search.dart';
 import '../utils/dexfonts.dart';
 import 'dart:math';
 
@@ -46,8 +42,8 @@ class QuizContent extends StatelessWidget {
                     ),
                     SizedBox(height: 30),
                     Image.network(
-                      myPokemon['result']['sprites']['other']['official-artwork']
-                          ['front_default'],
+                      myPokemon['result']['sprites']['other']
+                          ['official-artwork']['front_default'],
                       fit: BoxFit.cover,
                       width: 200,
                       height: 200,
@@ -147,7 +143,8 @@ class QuizContent extends StatelessWidget {
                                   );
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
-                                  dataSearch.loadPokemon(randomize.nextInt(1009));
+                                  dataSearch
+                                      .loadPokemon(randomize.nextInt(1009));
                                 },
                                 child: Icon(Icons.restart_alt_rounded),
                                 style: ElevatedButton.styleFrom(

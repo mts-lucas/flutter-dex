@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dex/homepage/homePage.dart';
-import 'package:flutter_dex/quiz/telaQuiz.dart';
-import 'package:flutter_dex/search/telaSearch.dart';
+import 'homepage/homePage.dart';
+import 'quiz/telaQuiz.dart';
+import 'search/telaSearch.dart';
 import 'utils/colors.dart';
 
 void main() {

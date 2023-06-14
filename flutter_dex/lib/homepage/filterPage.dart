@@ -5,7 +5,7 @@ import '../components/bottomNavBar.dart';
 import '../components/homeButtom.dart';
 import '../components/appBar.dart';
 import '../utils/loading.dart';
-import 'cardView.dart';
+import './cardView.dart';
 
 // Service responsible for loading Pokemon data
 class DataService {
